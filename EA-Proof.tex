@@ -1,289 +1,144 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{mathtools}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{natbib}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-\usepackage{setspace}
+\usepackage{amsmath, amssymb, amsthm}
 \usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
 \geometry{margin=1in}
-\setstretch{1.25}
 
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}[theorem]{Definition}
+\title{A Formal Inconsistency Proof of Absolute Nothingness via Kolmogorov Complexity and the Minimal Information Instantiation Principle}
+\author{Liam Love Sköld\\\textit{Independent}}
+\date{}
 
-\title{\bf The Informational Instantiation Axiom (IIA) and Perspectival Necessitarianism:\\ A Rigorous Meta-Foundational Framework for Existence, Consciousness, and Reality}
-\author{Author Name\footnote{Corresponding author: email@example.com} \and Coauthor Name}
-\date{\today}
+% Theorem environment
+\newtheorem{theorem}{Theorem}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-Existence, consciousness, and coherent entities necessarily arise from minimally sufficient informational processes that instantiate intrinsic semantic content and perspectival relational structures. This paper integrates advanced information-theoretic complexity measures—namely Lempel–Ziv complexity, permutation entropy, and excess entropy—with constructive modal logic foundations of necessary existence and a perspectival relational ontology. We formally prove the impossibility of absolute nothingness, thereby grounding existence epistemically and metaphysically. Our framework reconciles scientific objectivity with the perspectival nature of experience and meaning, offering empirical testability through rigorously derived complexity thresholds across diverse domains including fluid dynamics, black hole physics, neuroscience, and chemical self-organization. By addressing conceptual and empirical gaps such as circularity, threshold arbitrariness, and causal boundary definitions, we establish a unified metaphysics grounded in explicit reproducibility and open science commitments. This foundational synthesis offers transformative insights into metaphysics, consciousness studies, and the ontology of reality.
+This paper offers a formal argument showing that \emph{absolute nothingness}---the total absence of entities, properties, and information---is logically inconsistent within the framework of Zermelo-Fraenkel set theory (ZFC), Kolmogorov complexity, and the Minimal Information Instantiation Principle (MIIP), introduced here. The claim is that any instantiable object or state in such a system must possess at least irreducible descriptive content. Since ``absolute nothingness'' lacks even this minimal information, its instantiation is contradictory. This result has philosophical implications, suggesting ``nothing'' is not just absent in reality but incoherent as a formal concept. The paper concludes with reflections for metaphysics, modal logic, and information theory.
 \end{abstract}
 
-\newpage
-\tableofcontents
-\newpage
+\section{Introduction}
 
-\section{Introduction and Motivation}
+The concept of ``absolute nothingness''---a state lacking objects, properties, relations, and information---has long challenged both philosophy and physics. Classical positions, such as Parmenides’ denial of non-being and Heidegger’s inquiry into why there is something rather than nothing, reveal the depth of this issue. Quine’s discussion of ontological commitment further illuminates how language and logic shape notions of existence.
 
-\subsection{The Fundamental Question: Why Is There Something Rather Than Nothing?}
-The question of why there is something rather than nothing is one of philosophy’s most profound challenges, tracing from Leibniz onward. Classical ontological and cosmological arguments attempt to ground existence within necessary being or first causes; however, such approaches often rest on assumptions requiring further justification or risk explanatory circularity.
+Mathematically, Zermelo-Fraenkel set theory models ``nothing'' with the empty set, but even this is a definable entity: a ``something'' within the framework. What about the stronger notion of absolute nothingness---the total absence of all entities and information?
 
-Recent advances suggest new perspectives:  
-\begin{itemize}
-\item \textbf{Information as fundamental substrate:} Reconceptualizing reality with information as ontologically primary.
-\item \textbf{Modal necessity:} Employing formal logical frameworks to characterize existence as metaphysically necessary.
-\item \textbf{Perspectival relational ontology:} Emphasizing relational structures and first-person perspectives as ontological primitives beyond substance metaphysics.
-\end{itemize}
+By leveraging algorithmic information theory and introducing the Minimal Information Instantiation Principle (MIIP)---a generalization of Leibniz’s Principle of Sufficient Reason---this paper contends that ``absolute nothingness'' is not just absent in reality, but formally inconsistent.
 
-Nevertheless, significant challenges remain. These include defining \emph{intrinsic semantic content} without circularity, establishing \emph{quantitative complexity thresholds} identifying genuine entity instantiation, connecting modal logical necessity with empirical science, and formalizing \emph{boundaries and causal separation} within complex systems.
+\section{Formal Preliminaries and Key Definitions}
 
-Our goal is to develop a rigorous, empirically grounded framework uniting these strands, centered on the \emph{Informational Instantiation Axiom (IIA)} and a metaphysical stance we term \emph{Perspectival Necessitarianism}.
+\subsection{Zermelo-Fraenkel Set Theory (ZFC)}
 
-\subsection{Prior Attempts and Their Limitations}  
-Integrated Information Theory (IIT) offers a mathematical model of consciousness based on integrated causal information but confronts challenges including definitional circularity, heuristic thresholds, and incomplete causal formalization.
+Modern mathematics uses ZFC as a foundational system for discussing objects and their properties \cite{Jech2003}.
 
-Modal metaphysics elucidates necessary existence through logic but lacks empirical grounding or constructive realizations linking existence with physical or informational processes.
+\subsection{Kolmogorov Complexity}
 
-Informational ontologies suggest information’s primacy but struggle with the ambiguity of semantic content and often conflate epistemic perspectives with ontological claims.
+Kolmogorov complexity measures the shortest program capable of generating a specific output; differences in results between universal machines are bounded by a constant and do not affect the argument’s thrust \cite{Kolmogorov1965, Chaitin1966, LiVitanyi2008}.
 
-While each contributes important insights, none integrates formal necessity, intrinsic semantics, complexity, causal boundaries, and perspectival relations into a comprehensive, testable framework.
+\subsection{Minimal Information Instantiation Principle (MIIP)}
 
-\subsection{Paper Goals and Contributions}  
-We formulate the \textbf{Informational Instantiation Axiom (IIA)}: \emph{Any coherent entity arises necessarily from minimally sufficient informational processes possessing intrinsic semantic content and perspectival relational structure.}
+MIIP, introduced here, stipulates:
 
-Our contributions include:  
-\begin{enumerate}
-\item A formal proof of the \emph{impossibility of absolute nothingness} via constructive modal logic and computational realizability.
-\item A non-circular definition of \emph{intrinsic semantic content} based on partition-invariant mutual information measures.
-\item Development of a \emph{composite complexity threshold} integrating Lempel–Ziv complexity, permutation entropy, and excess entropy with meta-analytic justification and robustness to noise.
-\item Formalization of \emph{entity boundaries} as minimal separating sets in causal graphs, validated by a Boundary Robustness Score.
-\item Empirical validation across physics, neuroscience, and chemistry with falsifiable predictions.
-\item Philosophical synthesis in the metaphysical posture of \emph{Perspectival Necessitarianism}, recognizing perspectival relational structures as ontological primitives.
-\item Commitment to transparency and reproducibility through open-source computations and datasets.
-\end{enumerate}
+\begin{quote}
+Any entity or state that can be instantiated within a formal system must be associated with at least a small, nonzero quantity of descriptive information.
+\end{quote}
 
-\section{Philosophical and Logical Foundations}
+Formally, for any possible entity $e$, there exists a description $d_e$ such that
+\[
+K(d_e) \geq c > 0,
+\]
+where $c$ is a lower bound inherent to the system.
 
-\subsection{The Impossibility of Absolute Nothingness}
+\subsection{Absolute Nothingness ($\mathcal{N}$)}
 
-Absolute nothingness is formalized as:
+Here, ``absolute nothingness'' refers to a state with no entities, properties, relations, or instantiable structure---realized as a complete absence, even of information.
 
-\begin{equation}\label{eq:nothingness}
-\neg \exists x.\; Ex,
-\end{equation}
-
-where $Ex$ denotes “entity $x$ exists.” We demonstrate that asserting \eqref{eq:nothingness} leads to performative contradiction:
-
-\begin{itemize}
-    \item Any assertion, including “nothing exists,” requires an existential substrate to instantiate the assertion.
-    \item In constructive modal logic, statements and proofs correspond to informational processes.
-\end{itemize}
-
-Consequently, absolute nothingness is incoherent, and existence is necessary:
-
-\begin{equation}\label{eq:necessity}
-\Box\exists x.\; Ex,
-\end{equation}
-
-establishing metaphysical necessity of existence.
-
-\subsection{Perspectival Necessitarianism and Relational Ontology}
-
-Perspectival relational structures are taken as ontological primitives with these key features:
-
-\begin{itemize}
-    \item Entities arise co-dependently via relational differentiation.
-    \item Perspectives are ontologically essential, enabling semantic content and knowledge.
-    \item Scientific objectivity emerges as stable intersubjective consensus among these perspectives.
-\end{itemize}
-
-\section{The Informational Instantiation Axiom (IIA): A Rigorous Model of Existence}
-
-\subsection{Formal Statement of the IIA}
-
-For any coherent entity $E$, there exists an informational process $P$ that satisfies:
-
-\begin{enumerate}
-\item $P$ has intrinsic semantic content $S(P)$, quantifiable by partition-invariant internal mutual information.
-\item $P$ exhibits generative depth measurable by compression-based metrics (e.g., Lempel-Ziv complexity).
-\item $E$’s boundary corresponds to a minimal separating set in the causal graph of $P$.
-\end{enumerate}
-
-More formally,
-
-\begin{equation}\label{eq:iia}
-\exists \tau^{*}:\quad S(P) \geq \tau^{*} \implies E \text{ instantiated},
-\end{equation}
-
-where $\tau^{*}$ is an empirically and theoretically justified threshold.
-
-\subsection{Complexity Metrics and Thresholds}
-
-The composite semantic content threshold $\tau^{*}$ consists of:
-
-\begin{itemize}
-\item \textbf{Lempel–Ziv Complexity (CLZ):} Quantifies compressibility and generative complexity.
-\item \textbf{Permutation Entropy (PE):} Measures temporal ordering and dynamical structure.
-\item \textbf{Excess Entropy (EE):} Captures long-range dependencies and predictive information.
-\end{itemize}
-
-Weights in the composite are derived with meta-analytic effect sizes and theoretical priors to ensure robustness against noise and embedding parameters.
-
-\subsection{Boundary Conditions and Causal Separation}
-
-Entity boundaries are minimal separating sets identified via causal discovery algorithms such as PC, LiNGAM, and FCI. Stability under perturbations is measured by the Boundary Robustness Score (BRS), validating entity demarcation.
-
-\section{Empirical Applications and Validation}
-
-\subsection{Turbulent Vortices}
-
-Using direct numerical simulations (DNS) of 2D incompressible fluids, vortical regions were segmented and analyzed for intrinsic semantic content exceeding $\tau^{*}$. Noise perturbations confirm robustness.
-
-\subsection{Black Hole Horizon Entropy}
-
-Gravitational wave data from LIGO were examined to estimate semantic content associated with black hole horizons, demonstrating correspondence with theoretical Bekenstein-Hawking entropy and enabling falsifiable predictions.
-
-\subsection{Neural Compressibility and Consciousness}
-
-EEG signals recorded under graded anesthesia display changes in complexity correlating with conscious responsiveness, supporting IIA's neuroscientific applicability.
-
-\subsection{Chemical Self-Replication}
-
-Analysis of kinetics from peptide reactors reveals multiscale informational content dynamics linked to self-organization and surpassing $\tau^{*}$ thresholds.
-
-\section{Integrating Modal Logic and Informational Semantics}
-
-The necessity of existence (Equation \ref{eq:necessity}) is realized through informational processes with semantic content satisfying Equation \ref{eq:iia}. Semantic content is defined intrinsically through internal transitions, ensuring non-circularity.
-
-This advances a metaphysics of informational structural realism distinct from panpsychism, neutral monism, or emergent physicalism.
-
-\section{Philosophical Implications and Future Directions}
-
-IIA reconciles objectivity and subjectivity through perspectival relational ontology. The framework supports a unified metaphysics with empirically grounded emergence criteria.
-
-Future endeavors include expanded empirical validation, philosophical clarification, and open-science commitments for reproducibility.
-
-\section{Conclusion}
-
-This framework rigorously integrates constructive modal logic, intrinsic semantic content measurement, and causal boundary formalization into a unified theory of existence as informational instantiation. It provides a falsifiable and operational metaphysical basis for understanding the emergence of conscious and coherent entities across domains.
-
-\newpage
-\appendix
-
-\section{Formal Constructive Modal Logic Proofs for the Necessity of Existence}
-
-\subsection{A.1 Modal and Constructive Foundations}
-
-We work in a constructive modal logic framework with modal operator $\Box$ ("necessarily") interpreted constructively, requiring a computational witness for necessity.
-
-\subsection{A.2 Self-Reference and Inconsistency of Nothingness}
+\section{Theorem and Proof}
 
 \begin{theorem}
-Absolute nothingness is logically incoherent; i.e.,
-\[
-\neg \diamond \neg \exists x.\, Ex.
-\]
+There is no instantiable state $\mathcal{N}$ representing absolute nothingness within the combined framework of ZFC, Kolmogorov complexity, and MIIP.
 \end{theorem}
 
 \begin{proof}
-Assume for contradiction possible absolute nothingness: $\diamond \neg \exists x.\, Ex$. For the proposition $\neg \exists x.\, Ex$ to be stated or represented requires an existent informational process or agent. This contradicts the no-existence assumption. Thus, absolute nothingness cannot be coherently asserted or instantiated.
+Suppose, for contradiction, that such a state $\mathcal{N}$ can be instantiated:
+
+\begin{enumerate}[label=(\alph*)]
+  \item By assumption, $\mathcal{N}$ is formally definable within the system.
+  \item By definition, $\mathcal{N}$ has no information and its description’s complexity satisfies
+  \[
+  K(D(\mathcal{N})) = 0.
+  \]
+  \item According to MIIP,
+  \[
+  K(D(\mathcal{N})) \geq c > 0
+  \]
+  for any instantiated entity.
+\end{enumerate}
+
+Therefore,
+\[
+K(D(\mathcal{N})) = 0 \quad \wedge \quad K(D(\mathcal{N})) \geq c > 0,
+\]
+which is a contradiction. It follows that absolute nothingness cannot be instantiated.
 \end{proof}
 
-Hence, by modal necessity:
+\paragraph{On the Empty Set}
 
+It is worth clarifying that the empty set $\varnothing$ is often thought to represent ``nothing.'' Yet, as a mathematically definable object with nonzero descriptive complexity, it does not correspond to true absolute nothingness, but rather to an empty mathematical entity \cite{Jech2003}.
+
+\section{Discussion}
+
+\subsection{MIIP and Sufficient Reason}
+
+MIIP expresses the idea that existence requires information. This connects to Leibniz’s Principle of Sufficient Reason \cite{Leibniz1714} and to recent ideas in digital physics, in which the fabric of reality is viewed as fundamentally informational \cite{Tegmark2008}.
+
+\subsection{Beyond Epistemology}
+
+This line of argument is not about what we can (or cannot) know about ``nothing,'' but rather claims that the very instantiation of absolute nothingness is logically inconsistent.
+
+\subsection{Modal and Ontological Implications}
+
+In modal terms,
 \[
-\Box \exists x.\, Ex.
+\neg \Diamond \mathcal{N},
 \]
+expresses the impossibility of instantiating absolute nothingness, supporting the intuition that ``there is always something.''
 
-\section{Statistical Methods and Protocols}
+\section{Conclusion}
 
-\subsection{B.1 Complexity and Semantic Content Estimation}
+By combining set theory, Kolmogorov complexity, and a new metaphysical principle, it emerges that ``absolute nothingness'' is not just physically absent—it is formally inconsistent. Any instantiable system inevitably contains some information; thus, existence appears to be fundamentally informational.
 
-\begin{itemize}
-    \item \textbf{Lempel-Ziv Complexity:} Computed on symbolic sequences to estimate decompression lengths.
-    \item \textbf{Permutation Entropy:} Ordinal pattern analysis to infer temporal complexity.
-    \item \textbf{Excess Entropy:} Mutual information between past and future partitions estimated from transition matrices.
-\end{itemize}
+\begin{thebibliography}{99}
 
-\subsection{B.2 Thresholding and Validation}
+\bibitem{Chaitin1966}
+Chaitin, G. J. (1966). On the length of programs for computing finite binary sequences. \emph{Journal of the ACM}, 13(4), 547--569.
 
-Meta-analytic aggregation of prior studies yields $\tau^{*}$. Bootstrap resampling assesses metric stability; mixed effects models analyze EEG data with random effects for subjects and fixed effects for conditions.
+\bibitem{Heidegger1962}
+Heidegger, M. (1962). \emph{Being and Time} (J. Macquarrie \& E. Robinson, Trans.). Harper \& Row. (Original work published 1927)
 
-\section{Formal Definitions and Algorithms}
+\bibitem{Jech2003}
+Jech, T. (2003). \emph{Set Theory}. Springer.
 
-\subsection{C.1 Boundary Robustness Score (BRS)}
+\bibitem{Kolmogorov1965}
+Kolmogorov, A. N. (1965). Three approaches to the quantitative definition of information. \emph{Problems of Information Transmission}, 1(1), 1--7.
 
-Define BRS as
+\bibitem{Leibniz1714}
+Leibniz, G. W. (1714). \emph{Monadology}.
 
-\[
-BRS(E) = \frac{1}{N} \sum_{i=1}^N \mathbf{1}_{\text{stable}}(S_i),
-\]
+\bibitem{LiVitanyi2008}
+Li, M., \& Vitányi, P. (2008). \emph{An Introduction to Kolmogorov Complexity and Its Applications} (3rd ed.). Springer.
 
-where $S_i$ are candidate minimal separating sets from causal discovery and stability is assessed over parameter perturbations.
+\bibitem{Quine1948}
+Quine, W. V. (1948). On what there is. \emph{Review of Metaphysics}, 2(5), 21--38.
 
-\subsection{C.2 Algorithm Workflow Pseudocode}
+\bibitem{Tegmark2008}
+Tegmark, M. (2008). The mathematical universe. \emph{Foundations of Physics}, 38(2), 101--150.
 
-\begin{algorithm}[H]
-\caption{IIA Metric Computation Workflow}
-\begin{algorithmic}[1]
-\Require Time series data $X_t$
-\State Reconstruct state space $Y$ via embedding
-\State Partition $Y$ into discrete states
-\State Estimate transition probabilities $T$ of $Y$
-\State Compute semantic content $S(P)$ via mutual information, Lempel-Ziv, and permutation entropy
-\If{$S(P) \geq \tau^{*}$}
-    \State Identify boundaries via causal discovery
-    \State Compute Boundary Robustness Score
-    \If{Boundary is robust}
-        \State Declare entity instantiated
-    \Else
-        \State Entity instantiation not robust
-    \EndIf
-\Else
-    \State No entity instantiation detected
-\EndIf
-\end{algorithmic}
-\end{algorithm}
-
-\section{Empirical Domain Details}
-
-\subsection{D.1 Turbulent Vortices}
-
-DNS simulations generate vorticity fields; vortex candidates are segmented and analyzed for informational metrics exceeding thresholds, with noise robustness confirmed.
-
-\subsection{D.2 Black Hole Horizon Entropy}
-
-LIGO datasets are used to compare observed gravitational waveforms with theoretical predictions for horizon entropy via semantic content metrics.
-
-\subsection{D.3 Neural Data: Consciousness Modulation}
-
-EEG data preprocessing includes artifact removal; complexity changes are statistically modeled with mixed effects predicting consciousness states.
-
-\section{Philosophical Engagement with Competing Ontologies}
-
-\subsection{E.1 Panpsychism}
-
-Unlike panpsychism's universal consciousness attribution, IIA imposes explicit semantic content thresholds for entity instantiation.
-
-\subsection{E.2 Neutral Monism}
-
-IIA aligns with neutral monism in treating information as ontologically fundamental, but explicitly formalizes necessary complexity metrics.
-
-\subsection{E.3 Emergent Physicalism and Reductionism}
-
-IIA differentiates itself by defining intrinsic semantic content independent of material substrate reducibility.
+\end{thebibliography}
 
 \end{document}
